@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Module 2 - Scrim 4: CV-Model</title>
+</head>
+<body>
+    <!-- Let's add Vue here -->
+    <div id="app">
+        <p>Type in your name here:</p>
+        <!-- v-model directive macht value-Attribut überflüssig und macht ein input-Field reactive -->
+        <input name="field" v-model="field" />
+        <p>{{ greeting }}</p>
+    </div>
+    
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                // field wird automatisch aktualisiert, wenn etwas ins input-Feld geschrieben wird
+                "field": ""
+            },
+            computed: {
+                greeting: function() {
+                    return this.field === "" ? "" : "Hello " + this.field + " :)";
+                }
+            }
+        });
+    </script>
+</body>
+</html>
