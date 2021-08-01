@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Module 2 - Scrim 3: Computed Properties</title>
+</head>
+<body>
+    <!-- Let's add Vue here -->
+    <div id="app">
+            {{ exclamation }}
+            <br />
+            {{ reversedMessage }}      
+    </div>
+    
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                "message": "Learning Vue"
+            },
+            // berechnete Eigenschaften
+            computed: {
+                exclamation: function() { 
+                    // fügt ein Ausrufezeichen hinzu
+                    return this.message + "!";
+                },
+                reversedMessage: function() {
+                    // gibt Message mit Ausrufezeichen rückwärts zurück
+                    return this.exclamation.split("").reverse().join("");
+                }
+            }
+        });
+    </script>
+</body>
+</html>
