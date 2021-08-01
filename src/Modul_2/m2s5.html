@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Module 2 - Scrim 5: Computed Setter</title>
+</head>
+<body>
+    <!-- Let's add Vue here -->
+    <div id="app">
+        <p>Type in your full name:</p>   
+        <input name="field" v-model="fullName" />
+        
+        <p>Your firstname is: {{ firstName }}</p>
+        <p>Your lastname is: {{ lastName }}</p>
+    </div>
+    
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                field: "",
+                firstName: "",
+                lastName: ""
+            },
+            computed: {
+                fullName: {
+                    get: function() {
+                        return this.firstName + " " + this.lastName;
+                    },
+                    set: function(newName) {
+                        let name = newName.split(" ");
+                        
+                        this.firstName = name[0];
+                        this.lastName = name[1];
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
