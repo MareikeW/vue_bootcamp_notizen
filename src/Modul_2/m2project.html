@@ -13,20 +13,23 @@
             
         <h1>Contact Form</h1>
         
-        <p>{{ submissionText }}</p>
+        <p>{{ validation }}</p>
 
         <form method="post" action="#">
             <div>
                 <label for="name">Name</label>
                 <input name="name" id="name" v-model="form.name" />
+                <p style="color: red;">{{ nameValidation }}</p>
             </div>
             <div>
                 <label for="email">Email</label>
                 <input name="email" id="email" v-model="form.email" />
+                <p style="color: red;">{{ emailValidation }}</p>
             </div>
             <div>
                 <label for="message">Message</label>
                 <textarea name="message" id="message" v-model="form.message"></textarea>
+                <p style="color: red;">{{ messageValidation }}</p>
             </div>
 
             <!-- "prevent" verhindert, dass der Button etwas abschickt und die seite neu lädt -->
@@ -50,14 +53,31 @@
                     email: "",
                     message: ""
                 },
-                submissionText: ""
+                validation: ""
+            },
+            computed: {
+                nameValidation: function() {
+                    if (!this.form.name && this.validation) {
+                        return "Please enter your name."
+                    };
+                },
+                emailValidation: function() {
+                    if (!this.form.email && this.validation) {
+                        return "Please enter your email."
+                    };
+                },
+                messageValidation: function() {
+                    if (!this.form.message && this.validation) {
+                        return "Please enter your message."
+                    };
+                }
             },
             methods: {
                 formValidation: function() {
                     if (this.form.name && this.form.email && this.form.message) {
-                        return this.submissionText = "Your form details were submitted!"
+                        return this.validation = "Your form details were submitted!"
                     }
-                    return this.submissionText = "Please fill in the form correctly!"
+                    return this.validation = "Please fill in the form correctly!"
                 }
             }
         });
