@@ -13,32 +13,52 @@
             
         <h1>Contact Form</h1>
         
+        <p>{{ submissionText }}</p>
+
         <form method="post" action="#">
             <div>
                 <label for="name">Name</label>
-                <input name="name" id="name" />
+                <input name="name" id="name" v-model="form.name" />
             </div>
             <div>
                 <label for="email">Email</label>
-                <input name="email" id="email" />
+                <input name="email" id="email" v-model="form.email" />
             </div>
             <div>
                 <label for="message">Message</label>
-                <textarea name="message" id="message"></textarea>
+                <textarea name="message" id="message" v-model="form.message"></textarea>
             </div>
+
+            <!-- "prevent" verhindert, dass der Button etwas abschickt und die seite neu lädt -->
+            <button @click.prevent="formValidation">Send Form</button>
         </form>
 
         <h2>Form Details</h2>
         
         <!-- DETAILS HERE -->
-        
+        <p>Your name: {{ form.name }}</p>
+        <p>Your email: {{ form.email }}</p>
+        <p>Your message: {{ form.message }}</p>
     </div>
     
     <script>
         var app = new Vue({
             el: '#app',
             data: {
-                //
+                form: {
+                    name: "",
+                    email: "",
+                    message: ""
+                },
+                submissionText: ""
+            },
+            methods: {
+                formValidation: function() {
+                    if (this.form.name && this.form.email && this.form.message) {
+                        return this.submissionText = "Your form details were submitted!"
+                    }
+                    return this.submissionText = "Please fill in the form correctly!"
+                }
             }
         });
     </script>
