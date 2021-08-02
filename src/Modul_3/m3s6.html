@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Module 3 - Scrim 6: Status Check Interactive Challenge</title>
+</head>
+<body>
+    <div id="app" class="bg-blue-300 h-screen w-full flex flex-col justify-center items-center text-sm relative">
+            
+        <p class="text-xs mb-8">0-5 = GOOD; 6-8 = WARNING; 9-10 = DANGER</p>
+        <p>Current Status: {{ status }}</p>
+        
+        <div class="w-32 bg-green-200 text-center py-2" v-if="status >= 0 && status <= 5">
+            GOOD
+        </div>
+        
+        <div class="w-32 bg-yellow-200 text-center py-2" v-else-if="status >= 6 && status <= 8">
+            WARNING
+        </div>
+        
+        <div class="w-32 bg-red-200 text-center py-2" v-else>
+            DANGER
+        </div>
+        
+        <div class="text-xl mt-4">
+            <button v-if="status > 0" class="px-3 border rounded" @click.prevent="decrement">-</button>
+            <button v-if="status < 10" class="px-3 border rounded" @click.prevent="increment">+</button>
+        </div>
+        
+    </div>
+    
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                status: 0
+            },
+            methods: {
+                decrement: function() {
+                    if (this.status <= 0) {
+                        return;
+                    }
+                        
+                    this.status--;
+                },
+                increment: function() {
+                    if (this.status >= 10) {
+                        return;
+                    }
+                        
+                    this.status++;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

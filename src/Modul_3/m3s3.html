@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Module 3 - Scrim 3: Conditional Rendering 1</title>
+</head>
+<body>
+    <div id="app" class="bg-blue-300 flex flex-col justify-center items-center h-screen w-full text-sm">
+            
+        <template v-if="boxShow" >
+            <div class="w-20 h-20 bg-red-700">&nbsp;</div>
+            <div class="w-20 h-20 bg-red-700">&nbsp;</div>
+            <div class="w-20 h-20 bg-red-700">&nbsp;</div>
+        </template>
+
+    </div>
+    
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                    box: 10,
+                },
+            computed: {
+                boxShow: function () {
+                    return this.box > 5;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

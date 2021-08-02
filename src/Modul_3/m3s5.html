@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Module 3 - Scrim 5: Simple Modal</title>
+</head>
+<body>
+    <div id="app" class="bg-blue-300 h-screen w-full flex justify-center items-center text-sm relative">
+            
+        <div v-if="modal" class="absolute top-0 w-full bg-green-200 text-center py-2">
+            Here's some more information. <button @click.prevent="modal = false">X</button>
+        </div>
+        
+        <!-- Toggles Modalwindow -->
+        <button @click.prevent="modal = ! modal">{{ modal ? 'Close' : 'Open' }} Modal</button>
+        
+    </div>
+    
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                modal: false,
+            }
+        });
+    </script>
+</body>
+</html>
