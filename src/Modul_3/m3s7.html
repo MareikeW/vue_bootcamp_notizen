@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Module 3 - Scrim 7: Looping Basics</title>
+</head>
+<body>
+    <div id="app" class="bg-blue-300 h-screen w-full flex flex-col justify-center items-center text-sm relative">
+        
+        <h3>Schleife gibt div fünfmal aus:</h3>
+        <div v-for="i in 5">Hello {{ i }}</div>
+
+        <br />
+
+        <h3>Schleife zeigt auch den jeweiligen index an:</h3>
+        <!-- k = key -->
+        <div v-for="(i, k) in 5">Hello {{ k }}</div>
+
+        <br />
+
+        <h3>Schleife mit Array:</h3>
+        <div v-for="name in list">Hello {{ name }}</div>
+
+        <br />
+
+        <h3>Schleife mit Array aus Objekten:</h3>
+        <div v-for="person in personList">Hello {{ person.name }} ({{ person.age }})</div>
+        
+        <br />
+        
+        <h3>Schleife für select-Feld</h3>
+        <select>
+            <option>Please select one</option>
+            <option v-for="person in personList" value="person.age" v-text="person.name"></option>
+        </select>
+
+        <br />
+        
+        <h3>Schleife mit template</h3>
+        <template v-for="person in personList">
+            <p>{{ person.name }}</p>
+            <p>{{ person.age }}</p>
+        </template>
+
+    </div>
+    
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                list: [
+                    "Mareike", "Coco", "Jannik"
+                ],
+                personList: [
+                    {name: "Mareike", age: 30},
+                    {name: "Coco", age: 11},
+                    {name: "Jannik", age: 30}
+                ]
+            }
+        });
+    </script>
+</body>
+</html>
