@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Module 3 - Scrim 12: Conditional Styling Interactive Challenge</title>
+
+    <style>
+        .red { color: red; }
+        .big { font-size: 100px; }
+        .underline { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div id="app" class="bg-blue-300 h-screen w-full flex flex-col justify-center items-center text-sm relative">
+            
+        <!-- Red Text if 5 > 1 -->
+        <div v-bind:class="addRedText">Text 1</div>
+        <p>oder</p>
+        <div :class="{ red: 5 > 1 }">Text 1</div>
+        <p>oder</p>
+        <div :style="{ 'font-size': size + 'px' }">Text 2</div>
+        
+        <!-- Use size for text size (inline) -->
+        <div :style="{fontSize: size + 'px'}">Text 2</div>
+        
+        <!-- underline and red text if toggle is true -->
+        <div :class="{'underline': toggle, 'red': toggle}">Text 3</div>
+        <p>oder</p>
+        <div :class="[ toggle ? 'underline red' : '' ]">Text 3</div>
+        
+        <!-- orange text (inline) -->
+        <div :style="{'color': 'orange'}">Text 4</div>
+        <p>oder</p>
+        <div :style="[ textColor ]">Text 4</div>
+        
+        <!-- red if toggle is true, otherwise big. Always underline -->
+        <div :class="[[toggle ? 'red': 'big'], 'underline']">Text 5</div>
+        <p>oder</p>
+        <div :class="[toggle ? 'red': 'big']" class="underline">Text 5</div>
+    </div>
+    
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                size: 25,
+                toggle: true,
+                textColor: {
+                    color: 'orange'
+                }
+            },
+            computed: {
+                addRedText: function() {
+                    return {
+                        'red': 5 > 1
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
