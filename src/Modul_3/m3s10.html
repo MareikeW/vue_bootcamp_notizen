@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Module 3 - Scrim 10: Class Bindings (Array)</title>
+
+    <style>
+        .danger {
+            color: red;
+        }
+        .active {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" class="bg-blue-300 h-screen w-full flex flex-col justify-center items-center text-sm relative">
+            
+        <h3>Ternary mit Array</h3>
+        <div v-bind:class="[isActive ? activeClass : errorClass]">Text</div>
+
+        <br />
+        <p>oder</p>
+        <br />
+
+        <h3>Kombination aus Array und Objekt</h3>
+        <div v-bind:class="[{ active: isActive, danger: !isActive }, 'font-bold']">Text</div>
+            
+        </div>
+        
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    isActive: true,
+                    activeClass: 'active',
+                    errorClass: 'danger',
+                },
+            });
+        </script>
+</body>
+</html>
