@@ -43,3 +43,10 @@ Custom String in title-Attribut:
           data: {
               message: "Hello title"
           }
+
+Scrim 3: 
+Conditional Rendering 1
+
+<template>: grouping container in html, kein div
+
+v-if-Attribut: ein Boolean - wird benutzt um etwas im DOM einzufügen oder aus dem DOM zu löschen
