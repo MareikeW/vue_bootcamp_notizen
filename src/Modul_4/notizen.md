@@ -15,3 +15,6 @@ Komponentenfeatures:
 Versteckte Vorteile:
 - Aktualisiert in der DOM nur Elemente, die aktualisiert werden müssen --> schneller
 - Component Scoped CSS: CSS wird für jede Komponente einzeln geschrieben, deshalb keine Klassenkollisionen
+
+Scrim 6: Single File Components
+Ab hier wird es erstmal nicht funktionieren, weil vue über npm installiert werden muss.
