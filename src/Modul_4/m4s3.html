@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Module 4 - Scrim 3: Slots & Named Slots</title>  
+</head>
+<body>
+    <div id="app" class="bg-blue-200 w-full h-screen ">
+        <title-text>
+            <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+            </ul>
+
+            <!-- v-slot wird immer mit dem template-tag verwendet -->
+            <!-- "something" ist der Name von diesem Template -->
+            <template v-slot:something>Another Text</template>
+        </title-text>
+    </div>
+    
+    <script>
+        // Alles was zwischen den Komponenten-Tag oben in HTML ist, kann über <slot></slot> erreicht werden.
+        // Hier: <ul><li>Item 1</li><li>Item 2</li></ul>
+
+        // v-slot wird nicht über <slot> gerendert
+        // v-slot wird nur durch <slot name=""> sichtbar
+        Vue.component('title-text', {
+            template: '<div><slot></slot><slot name="something"></slot></div>'
+        });
+        
+        var app = new Vue({
+            el: '#app',
+            data: {
+                
+            }
+        });
+    </script>
+</body>
+</html>
