@@ -18,3 +18,8 @@ Versteckte Vorteile:
 
 Scrim 6: Single File Components
 Ab hier wird es erstmal nicht funktionieren, weil vue über npm installiert werden muss.
+
+Scrim 7: Styles in Components
+Damit Styles nicht für alle Komponenten zugänglich sind, muss man das directive 
+"scoped" in den öffnenden Tag hinzufügen: <style scoped>.
+Dadurch sind diese Styles nur innerhalb der Komponente verfügbar.
