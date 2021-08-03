@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Module 4 - Scrim 8: To-Do List Mini App</title>  
+</head>
+<body>
+    <div id="app" class="bg-gray-200 w-full h-screen flex flex-col items-center p-4">
+        <div>
+            <input type="text" placeholder="Add an item" v-model="item" />
+            <button @click.prevent="addItem">Add</button>
+            
+            <list :items="items"></list>
+        </div>
+    </div>
+    
+    <script src="./index.js"></script>
+</body>
+</html>
