@@ -1,4 +1,4 @@
-Modul 2
+Modul 2 - Vue Basics
 
 Scrim 1:
 Declarative Rendering & Attributes

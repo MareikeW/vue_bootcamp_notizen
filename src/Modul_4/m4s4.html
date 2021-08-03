@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Module 4 - Scrim 4: Props</title>  
+</head>
+<body>
+    <div id="app" class="bg-blue-200 w-full h-screen ">
+        <!-- Prop: user-id mit Wert 456 wird an Komponente weitergegeben -->
+        <!-- Prop: link mit v-bind: , weil es ein Objekt ist. v-bind macht es zu einem JSON-String. -->
+        <title-text user-id="456" :link="{ title: 'Home', link: '#home' }"></title-text>
+    </div>
+    
+    <script>
+        Vue.component('title-text', {
+            template: 
+                `<div>
+                    <h1>User Id: {{ userId }}</h1>
+                    <p>{{ link.title }}</p>
+                </div>`,  
+            
+            // user-id wird von Vue automatisch als userId erkannt
+            // oben immer klein und mit "-" und hier immer camelCase
+            props: ['userId', 'link']
+        });
+        
+        var app = new Vue({
+            el: '#app',
+            data: {
+                
+            }
+        });
+    </script>
+</body>
+</html>

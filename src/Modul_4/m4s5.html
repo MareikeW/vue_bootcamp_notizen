@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Module 4 - Scrim 5: Slots & Props Interactive Challenge</title>  
+</head>
+<body>
+    <div id="app" class="bg-blue-200 w-full h-screen ">
+            
+        <!-- Exercise 1 -->
+        <!-- A <p> tag with an in-line font size matching the prop -->
+        <size-title text-size="25">Vue Bootcamp</size-title>
+        
+        <!-- Exercise 2 -->
+        <!-- An unordered list of the 3 names and a title -->
+        <my-list :list="{ names: ['John', 'Jane', 'Mary'] }">My List of Names</my-list>
+        
+        <!-- Exercise 3 -->
+        <!-- Structure a web site with the given 3 slots -->
+        <my-site>
+            <template v-slot:header>
+                My Website Header Here
+            </template>
+            <template v-slot:body>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
+            </template>
+            <template v-slot:footer>
+                &copy; 2020 Copyright
+            </template>
+        </my-site>
+        
+    </div>
+    
+    <script>
+        Vue.component('size-title', {
+            template: `<div :style="{fontSize: textSize + 'px'}"><slot></slot></div>`,
+
+            props: ['textSize']
+        });
+
+        Vue.component('my-list', {
+            template: ` <div>
+                            <h2><slot></slot></h2>
+                            <ul>
+                                <li v-for="name in list.names">{{ name }}</li>
+                            </ul>
+                        </div>
+                `,
+
+            props: ['list']
+        });
+
+        Vue.component('my-site', {
+            template: `
+                        <div>
+                            <header><slot name="header"></slot></header>
+                            <p><slot name="body"></slot></p>
+                            <footer><slot name="footer"></slot></footer>
+                        </div>
+            `
+        })
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                
+            }
+        });
+    </script>
+</body>
+</html>
