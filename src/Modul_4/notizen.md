@@ -15,3 +15,11 @@ Komponentenfeatures:
 Versteckte Vorteile:
 - Aktualisiert in der DOM nur Elemente, die aktualisiert werden müssen --> schneller
 - Component Scoped CSS: CSS wird für jede Komponente einzeln geschrieben, deshalb keine Klassenkollisionen
+
+Scrim 6: Single File Components
+Ab hier wird es erstmal nicht funktionieren, weil vue über npm installiert werden muss.
+
+Scrim 7: Styles in Components
+Damit Styles nicht für alle Komponenten zugänglich sind, muss man das directive 
+"scoped" in den öffnenden Tag hinzufügen: <style scoped>.
+Dadurch sind diese Styles nur innerhalb der Komponente verfügbar.
