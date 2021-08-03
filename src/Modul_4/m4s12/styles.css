@@ -1,0 +1,23 @@
+body {
+    background: #fff;
+    color: #777;
+}
+
+.hero-box {
+    background: #f3f3ff;
+    display: flex;
+}
+
+.hero-box-left {
+    width: 400px;
+    margin: 25px;
+}
+
+.hero-box-right {
+    width: 100%;
+    margin: 25px; 
+}
+
+.medium-text {
+    margin-top: 10px;
+}

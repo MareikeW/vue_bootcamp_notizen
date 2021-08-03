@@ -1,0 +1,7 @@
+body {
+    background: #eee;
+    padding: 15px 35px;
+    width: 100%;
+    height: screen;
+    display: flex;
+}
