@@ -1,4 +1,4 @@
-Modul 3
+Modul 3 - Template Syntax
 
 Scrim 1:
 Attribut: v-once <div v-once>{{ message }}</div>

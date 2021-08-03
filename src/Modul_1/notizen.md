@@ -1,4 +1,4 @@
-Modul 1
+Modul 1 - Introduction
 
 Scrim 1:
 Was ist Vue.js?
