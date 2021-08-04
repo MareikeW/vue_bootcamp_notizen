@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Module 5 - Scrim 5: To-Do List Mini App (Revisited)</title>  
+</head>
+<body>
+    <div id="app" class="bg-gray-200 w-full h-screen flex flex-col items-center p-4">
+        <div>
+            <input type="text" placeholder="Add an item" v-model="item" />
+            <button @click.prevent="addItem">Add</button>
+            
+            <!-- listens for button to be clicked in List-component, and then calls removeItem method to remove particular item -->
+            <list :items="items" v-on:remove-item="removeItem"></list>
+        </div>
+    </div>
+    
+    <script src="./index.js"></script>
+</body>
+</html>
