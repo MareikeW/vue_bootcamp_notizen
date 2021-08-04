@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Module 5 - Scrim 4: Custom Events</title>  
+</head>
+<body>
+    <div id="app">
+        // listens for event "got-clicked" und führt dann handleFormSubmitted-Funktion aus
+        <my-button v-on:got-clicked="handleFormSubmitted"></my-button>
+        
+        {{ message }}
+    </div>
+    
+    <script src="./index.js"></script>
+</body>
+</html>
