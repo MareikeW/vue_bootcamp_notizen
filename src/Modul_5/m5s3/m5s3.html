@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Module 5 - Scrim 2: Basics of v-on</title>  
+</head>
+<body>
+    <div id="app" v-on:keyup.esc="globalPage = false" v-if="globalPage"">
+        <!-- Example 1 - using javascript expression -->
+        <!-- When the button is clicked, it should increase exampleOne by 12 -->
+        <button v-on:click="exampleOne += 12">Example 1</button>
+        <div>{{ exampleOne }}</div>
+        
+        <!-- Example 2 - using a method -->
+        <!-- When the button is clicked, it should increase exampleTwo by 2 -->
+        <button v-on:click="addTwo">Example 2</button>
+        <div>{{ exampleTwo }}</div>
+        
+        <!-- Example 3 - using a method with data -->
+        <!-- When the button is clicked, it should set exampleThree to data being passed in -->
+        <button v-on:click="addData('Hello')">Example 3</button>
+        <div>{{ exampleThree }}</div>
+        
+        <!-- Example 4 - using a method -->
+        <!-- When the word "Show" is double clicked (dblclick), it should make the text appear! -->
+        <div v-on:dblclick="showText">Show</div>
+        <div v-if="isVisible">Abracadabra</div>
+        
+        <!-- Example 5 - using a method -->
+        <!-- When the key esc is pressed, the whole page should disappear -->
+        
+    </div>
+    
+    <script src="./index.js"></script>
+</body>
+</html>
