@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Module 5 - Scrim 6: Multiple Pieces of Data</title>  
+</head>
+<body class="bg-gray-200 flex justify-center items-center h-screen">
+    <div id="app">
+        <!-- Vue App Here -->
+        <my-button v-on:my-custom-event="handleMyButton"></my-button>
+        
+        <!-- Ohne das div und v-if würde eine Fehlermeldung kommen, weil "data" ja noch nicht existiert, 
+        sondern erst mit dem Klick auf den Button erstellt wird. -->
+        <div v-if="data">{{ data.title }}({{ data.id }})</div>
+    </div>
+    
+    <script src="./index.js"></script>
+</body>
+</html>
