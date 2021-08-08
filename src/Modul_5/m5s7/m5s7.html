@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Module 5 - Scrim 7: Handling Form Data</title>  
+</head>
+<body class="bg-gray-200 flex justify-center items-center h-screen">
+    <div id="app">
+        <!-- Vue App Here -->
+        <!-- Wenn der Button geklickt wird, verschwindet das Formular -->
+        <form method="post" action="#" v-if="! form.submitted">
+            <!-- bekommt das event namens updated von der Komponente und aktualisiert den Wert mit $event -->
+            <input-field label="First Name" unique="first_name"
+                v-on:updated="form.first_name = $event"></input-field>
+            <div>Current: {{ form.first_name }}</div>
+            <input-field label="Last Name" unique="last_name"
+                v-on:updated="form.last_name = $event"></input-field>
+            <div>Current: {{ form.last_name }}</div>
+            <input-field label="Email" unique="email"
+                v-on:updated="form.email = $event"></input-field>
+            <div>Current: {{ form.email }}</div>
+            <div class="input-wrapper">
+                <button>Contact Us</button>
+            </div>
+        </form>
+
+        <!-- Erscheint, wenn der Button geklickt wurde -->
+        <div v-else>
+            Thank you for submitting the form.
+        </div>
+    </div>
+    
+    <script src="./index.js"></script>
+</body>
+</html>
